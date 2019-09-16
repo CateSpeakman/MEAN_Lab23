@@ -13,7 +13,7 @@ $(function () {
     $("#addTeamBtn").prop("href", "addTeam.html");
     $("#teamListDiv").hide();
     let objs;
-    $.getJSON("/api/leagues", function (leagues) {
+    $.getJSON("/leagues/data", function (leagues) {
 
         objs = leagues;
 
@@ -47,7 +47,7 @@ function showTeamByLeague() {
     if ($("#leagueList").val() != "-1") {
 
         $("#teamListDiv").show();
-        $.getJSON("/api/teams/byleague/" + $('#leagueList').val(), function (teams) {
+        $.getJSON("/teams/byleague/.data" + $('#leagueList').val(), function (teams) {
 
             objs = teams;
             $("#teamTable tbody").empty();
@@ -74,7 +74,7 @@ function showAllTeams() {
     let objs;
     $("#teamListDiv").show();
 
-    $.getJSON("/api/teams/", function (teams) {
+    $.getJSON("/teams/data", function (teams) {
 
         objs = teams;
         $("#teamTable tbody").empty();
