@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 const fs = require ('fs');
 
+
+
 var authorization = require('./../utils/auth');
 
 // GET http://localhost:3000/users/login
@@ -19,10 +21,12 @@ router.post('/login', function(req, res, next) {
   // get user data from form
   var userName = req.body.userName;
   var password = req.body.password;
-  
+    var users = getUsers();
   if (authorization.auth.authorize(userName, password)) {
+    req.session.username = useraname
       res.statusCode = 200;
   } else {
+    req.session.username = null;
       res.statusCode = 403;
   }
   
@@ -50,7 +54,7 @@ router.post('/register', function(req, res, next) {
 // read persisted data from file
 var getUsers = () => {
   try {
-      var usersString = fs.readFileSync('users.json');
+      var usersString = fs.readFileSync('/data/users.json');
       return JSON.parse(usersString);        
   } catch (err) {
       return [];
@@ -86,7 +90,7 @@ var insertUser = (userName, password, email) => {
 
 // persist data in file
 var saveUsers = (users) => {
-  fs.writeFileSync('users.json', JSON.stringify(users));      
+  fs.writeFileSync('/data/users.json', JSON.stringify(users));      
 };
 
 module.exports = router;

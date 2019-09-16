@@ -1,6 +1,6 @@
 var auth = {
     users: [{
-        "userName": "foobar",
+        "userName": 
         "password": "password"
     }],
     authorize: function(userName, password) {
