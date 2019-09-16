@@ -6,12 +6,12 @@ var authorization = require('./../utils/auth');
 
 // GET http://localhost:3000/users/login
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
+  res.render('login');
 });
 
 // GET http://localhost:3000/users/register
 router.get('/register', function(req, res, next) {
-  res.render('register', { title: 'Register' });
+  res.render('register');
 });
 
 // POST http://localhost:3000/users/login

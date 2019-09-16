@@ -3,12 +3,12 @@ var router = express.Router();
 var fs = require('fs');
 
 router.get('/', function(req, res, next) {
-    res.render('leagues');
+    res.render('teams');
 });
 
 router.get('/data', function(req, res, next) {
     try {
-        res.end(fs.readFileSync('./data/leagues.json'));
+        res.end(fs.readFileSync('./data/teams.json'));
     } catch (err) {
         res.end('[]');
     }
