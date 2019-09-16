@@ -66,9 +66,7 @@ var getUsers = () => {
 var insertUser = (userName, password, email) => {
   var users = getUsers();
 
-  // in ES6, if param and prop names are the same,
-  // you can use the following syntax instead of
-  // name: name, elev: elev
+
   var user = {
     userName,
     password,
