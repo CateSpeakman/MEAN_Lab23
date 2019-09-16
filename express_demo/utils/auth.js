@@ -1,10 +1,7 @@
 var auth = {
-    users: [{
-        "userName": 
-        "password": "password"
-    }],
-    authorize: function(userName, password) {
-        var validUser = this.users.filter((user) => {
+
+    authorize: function(userName, password, users) {
+        var validUser = users.filter((user) => {
             return user.userName === userName && user.password === password;
         });
 
